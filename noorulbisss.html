@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slider</title>
+  <link rel="stylesheet" type="text/css" href="slider.css">
+</head>
+<style>
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+
+}
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  box-sizing:border-box;
+}*/
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+</style>
+<body>
+<div class="container">
+  <div class="slideshow">
+     <div>
+        <img src="images/cat1.jpeg" alt="" width="150px" height="150" />
+      </div>
+      <div>
+        <img src="images/cat2.jpeg" alt="" width="150px" height="150"/>
+      </div>
+      <div>
+        <img src="images/cat2.jpg" alt="" width="150px" height="150"/>
+      </div>
+  </div>
+  <div class="slideshow">
+     <div>
+      <img src="images/cat3.jpeg" alt="" width="150px" height="150"/>
+    </div>
+    <div>
+      <img src="images/cat4.jpeg" alt="" width="150px" height="150"/>
+    </div>
+     <div>
+      <img src="images/cat4.jpg" alt="" width="150px" height="150"/>
+    </div>
+  </div>
+  <div class="slideshow">
+   <div>
+     <img src="images/cat5.jpg" alt="" width="150px" height="150"/>
+   </div>
+   <div>
+     <img src="images/cat1.jpg" alt="" width="150px" height="150"/>
+   </div>
+   <div>
+     <img src="images/cat3.jpg" alt="" width="150px" height="150"/>
+   </div>
+  </div>
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+</div>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+  var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slideshow");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+</body>
+</html>
+code.jquery.com
+/*! jQuery v2.1.1 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */ !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("unde...
+code.jquery.com
